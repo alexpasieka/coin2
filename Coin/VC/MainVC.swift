@@ -9,6 +9,14 @@
 import UIKit
 
 // MARK: - Styling
+class mainHeader: UIView {
+    override func draw(_ rect: CGRect) {
+        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.masksToBounds = true
+        self.layer.maskedCorners = [.layerMinXMaxYCorner]
+    }
+}
+
 
 class barGraph: UIView {
     override func draw(_ rect: CGRect) {
