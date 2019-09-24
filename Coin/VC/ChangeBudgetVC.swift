@@ -44,20 +44,20 @@ class ChangeBudgetVC: UITableViewController {
     // MARK: - Navigation
     
     // done changing current budget unwind segue
-    @IBAction func unwindWithDoneTapped(segue: UIStoryboardSegue) {
-        // initialize segue source
-        if let newCategoryVC = segue.source as? NewCategoryVC {
-            // if both fields were filled out
-            if let maxAmount = newCategoryVC.maxAmount, let name = newCategoryVC.name{
-                // create the new category
-//                var categories = MyAppData.shared.categories
-//                categories.append(Category(name: name, maxAmount: maxAmount, moneyLeftToSpend: maxAmount, moneySpent: 0.00))
-//                MyAppData.shared.categories = categories
-                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount = maxAmount
-                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneyLeftToSpend = maxAmount - MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount
-                
-            }
-        }
-    }
+//    @IBAction func unwindWithDoneTapped(segue: UIStoryboardSegue) {
+//        // initialize segue source
+//        if let newCategoryVC = segue.source as? NewCategoryVC {
+//            // if both fields were filled out
+//            if let maxAmount = newCategoryVC.maxAmount, let name = newCategoryVC.name{
+//                // create the new category
+////                var categories = MyAppData.shared.categories
+////                categories.append(Category(name: name, maxAmount: maxAmount, moneyLeftToSpend: maxAmount, moneySpent: 0.00))
+////                MyAppData.shared.categories = categories
+//                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount = maxAmount
+//                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneyLeftToSpend = maxAmount - MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneySpent
+//                
+//            }
+//        }
+//    }
 
 }

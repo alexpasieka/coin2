@@ -29,7 +29,7 @@ class MyAppData {
     var categories: [Category] = [Category]() {
         didSet {
             // sort categories alphabetically
-            categories = categories.sorted(by: { $0.name < $1.name })
+            categories = categories.sorted(by: { $0.moneySpent > $1.moneySpent })
             // save to disk (by encoding to JSON)
             let defaults = UserDefaults.standard
             try! defaults.set(JSONEncoder().encode(categories), forKey: categoriesKey)
@@ -50,11 +50,11 @@ class MyAppData {
     private init() {
         readDefaultsData()
         
-        categories.append(Category(name: "Gas", maxAmount: 500, moneyLeftToSpend: 500, moneySpent: 0.00))
-        categories.append(Category(name: "Food", maxAmount: 300, moneyLeftToSpend: 300, moneySpent: 0.00))
-        categories.append(Category(name: "Rent", maxAmount: 10, moneyLeftToSpend: 10, moneySpent: 0.00))
-        categories.append(Category(name: "Fun", maxAmount: 3000, moneyLeftToSpend: 3000, moneySpent: 0.00))
-        categories.append(Category(name: "Clothes", maxAmount: 2, moneyLeftToSpend: 2, moneySpent: 0.00))
+        categories.append(Category(name: "Gas", maxAmount: 500, moneyLeftToSpend: 500, moneySpent: 0.00, color:0xC43BFBFF))
+        categories.append(Category(name: "Food", maxAmount: 300, moneyLeftToSpend: 300, moneySpent: 0.00,color:0x54C4F9FF))
+        categories.append(Category(name: "Rent", maxAmount: 10, moneyLeftToSpend: 10, moneySpent: 0.00, color:0xFA6B5CFF))
+        categories.append(Category(name: "Fun", maxAmount: 3000, moneyLeftToSpend: 3000, moneySpent: 0.00, color:0xFCCB62FF))
+        categories.append(Category(name: "Clothes", maxAmount: 2, moneyLeftToSpend: 2, moneySpent: 0.00, color: 0xFFFF00FF))
 
     }
     
