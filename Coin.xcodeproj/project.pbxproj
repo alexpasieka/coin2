@@ -11,9 +11,8 @@
 		FAAE6FC82277E85B002FB09D /* PastMonthsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE6FC72277E85B002FB09D /* PastMonthsVC.swift */; };
 		FAAE6FCA2277EC72002FB09D /* PastMonthReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE6FC92277EC72002FB09D /* PastMonthReportVC.swift */; };
 		FACAE189226E5E4F00C07A94 /* InputSpendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAE188226E5E4F00C07A94 /* InputSpendingVC.swift */; };
-		FACAE18D226E885500C07A94 /* ChangeBudgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAE18C226E885500C07A94 /* ChangeBudgetVC.swift */; };
 		FACAE18F226E88FA00C07A94 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAE18E226E88FA00C07A94 /* Categories.swift */; };
-		FACAE194226E9CDD00C07A94 /* NewCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAE193226E9CDD00C07A94 /* NewCategoryVC.swift */; };
+		FACAE194226E9CDD00C07A94 /* ChangeBudgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAE193226E9CDD00C07A94 /* ChangeBudgetVC.swift */; };
 		FAD8D80422692BD300EF6861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8D80322692BD300EF6861 /* AppDelegate.swift */; };
 		FAD8D80622692BD300EF6861 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8D80522692BD300EF6861 /* MainVC.swift */; };
 		FAD8D80922692BD300EF6861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8D80722692BD300EF6861 /* Main.storyboard */; };
@@ -27,9 +26,8 @@
 		FAAE6FC72277E85B002FB09D /* PastMonthsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastMonthsVC.swift; sourceTree = "<group>"; };
 		FAAE6FC92277EC72002FB09D /* PastMonthReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastMonthReportVC.swift; sourceTree = "<group>"; };
 		FACAE188226E5E4F00C07A94 /* InputSpendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSpendingVC.swift; sourceTree = "<group>"; };
-		FACAE18C226E885500C07A94 /* ChangeBudgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBudgetVC.swift; sourceTree = "<group>"; };
 		FACAE18E226E88FA00C07A94 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		FACAE193226E9CDD00C07A94 /* NewCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryVC.swift; sourceTree = "<group>"; };
+		FACAE193226E9CDD00C07A94 /* ChangeBudgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBudgetVC.swift; sourceTree = "<group>"; };
 		FAD8D80022692BD300EF6861 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD8D80322692BD300EF6861 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD8D80522692BD300EF6861 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -97,8 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD8D80522692BD300EF6861 /* MainVC.swift */,
-				FACAE18C226E885500C07A94 /* ChangeBudgetVC.swift */,
-				FACAE193226E9CDD00C07A94 /* NewCategoryVC.swift */,
+				FACAE193226E9CDD00C07A94 /* ChangeBudgetVC.swift */,
 				FACAE188226E5E4F00C07A94 /* InputSpendingVC.swift */,
 				FAAE6FC72277E85B002FB09D /* PastMonthsVC.swift */,
 				FAAE6FC92277EC72002FB09D /* PastMonthReportVC.swift */,
@@ -182,8 +179,7 @@
 				FAEA6E6F227006660065CE68 /* MyAppData.swift in Sources */,
 				FAAE6FCA2277EC72002FB09D /* PastMonthReportVC.swift in Sources */,
 				FAD8D80622692BD300EF6861 /* MainVC.swift in Sources */,
-				FACAE194226E9CDD00C07A94 /* NewCategoryVC.swift in Sources */,
-				FACAE18D226E885500C07A94 /* ChangeBudgetVC.swift in Sources */,
+				FACAE194226E9CDD00C07A94 /* ChangeBudgetVC.swift in Sources */,
 				FACAE18F226E88FA00C07A94 /* Categories.swift in Sources */,
 				FAD8D80422692BD300EF6861 /* AppDelegate.swift in Sources */,
 				FACAE189226E5E4F00C07A94 /* InputSpendingVC.swift in Sources */,

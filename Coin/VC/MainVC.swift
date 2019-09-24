@@ -8,7 +8,8 @@
 
 import UIKit
 
-// MARK: - Styling
+// MARK: - Styling TODO
+
 class mainHeader: UIView {
     override func draw(_ rect: CGRect) {
         self.layer.cornerRadius = self.frame.height / 2
@@ -49,6 +50,8 @@ class changeBudgetButton: UIButton {
     }
 }
 
+// helper function for using hex values for colors
+// source: https://stackoverflow.com/questions/24263007/how-to-use-hex-color-values
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -66,6 +69,7 @@ extension UIColor {
         )
     }
 }
+
 // custom main view controller class
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -78,7 +82,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // ivars
     var moneyLeftToSpend: Float = 0.00
     var moneySpent: Float = 0.00
-    //var sortedCategories: [Category] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,8 +124,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // if the user has over spent
         if moneyLeftToSpend < 0.00 {
             moneyLeftToSpendLabel.text = String(format: "-$%.2f", abs(moneyLeftToSpend))
-            moneyLeftToSpendLabel.textColor = UIColor(red: 250/255, green: 107/255,
-                                                      blue: 97/255, alpha: 1)
+            moneyLeftToSpendLabel.textColor = UIColor(rgb: 0xFA765C)
         }
         
         // load category list data
@@ -133,10 +135,9 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // save current date to user defaults as last activity date
         MyAppData.shared.lastActivityDate = Date()
         
+        // TODO
         var previousWidth: CGFloat = 0
         var startX: CGFloat = 0
-        
-        //sortedCategories = MyAppData.shared.categories.sorted(by: { $0.moneySpent > $1.moneySpent })
         
         for c in MyAppData.shared.categories {
             startX = startX + previousWidth
@@ -148,8 +149,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             previousWidth = CGFloat(c.moneySpent / moneySpent) * barGraph.frame.width
         }
-        
-        
     }
     
     // MARK: - Table View
@@ -162,8 +161,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return MyAppData.shared.categories.count
     }
     
+    // TODO
     let legendWidth: CGFloat = 15
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // initialize cell (using detailed cell style)
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "categoryCell")
@@ -175,7 +174,9 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.layer.addSublayer(portion)
         
         // for each current budget category
-       
+        if category.moneyLeftToSpend < 0.00 {
+            cell.detailTextLabel?.textColor = UIColor(rgb: 0xFA765C)
+        }
         cell.textLabel?.text = category.name
         cell.detailTextLabel?.text = String(format: "$%.2f / $%.2f", category.moneySpent, category.maxAmount)
         
@@ -184,6 +185,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Navigation
     
+    // TODO
     // done input spending segue
     @IBAction func unwindWithSaveTapped(segue: UIStoryboardSegue) {
         // initialize segue source
@@ -212,19 +214,18 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func unwindWithDoneTapped(segue: UIStoryboardSegue) {
         // initialize segue source
        
-        if let newCategoryVC = segue.source as? NewCategoryVC {
+        if let changeBudgetVC = segue.source as? ChangeBudgetVC {
             // if both fields were filled out
             
-            if let maxAmount = newCategoryVC.maxAmount{
+            if let maxAmount = changeBudgetVC.maxAmount{
                 // create the new category
-              print(maxAmount)
                 //                var categories = MyAppData.shared.categories
                 //                categories.append(Category(name: name, maxAmount: maxAmount, moneyLeftToSpend: maxAmount, moneySpent: 0.00))
                 //                MyAppData.shared.categories = categories
-                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount = maxAmount
-                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneyLeftToSpend = maxAmount - MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneySpent
-                  //print(maxAmount)
-                print(MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount)
+                MyAppData.shared.categories[changeBudgetVC.currentCategoryIndex].maxAmount = maxAmount
+                MyAppData.shared.categories[changeBudgetVC.currentCategoryIndex].moneyLeftToSpend = maxAmount - MyAppData.shared.categories[changeBudgetVC.currentCategoryIndex].moneySpent
+                  print(maxAmount)
+                print(MyAppData.shared.categories[changeBudgetVC.currentCategoryIndex].maxAmount)
                 
             }
         }

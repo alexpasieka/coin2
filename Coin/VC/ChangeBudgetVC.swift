@@ -8,56 +8,54 @@
 
 import UIKit
 
-// custom change budget table view controller class
-class ChangeBudgetVC: UITableViewController {
-
+// custom new category view controller class
+class ChangeBudgetVC: UIViewController, UITextFieldDelegate {
+    
+    // storyboard references
+//    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var amountField: amountField!
+    
+    // ivars
+    var name: String?
+    var maxAmount: Float?
+    var currentCategoryIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        amountField.delegate = self
+      
+        categoryLabel.text = MyAppData.shared.categories[currentCategoryIndex].name
+        amountField.text = String(format: "$%.2f", MyAppData.shared.categories[currentCategoryIndex].maxAmount)
     }
     
-    // reload data after new category is created
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+    @IBAction func previousCategory(_ sender: Any) {
+        currentCategoryIndex = currentCategoryIndex - 1 < 0 ? 0 : currentCategoryIndex - 1
+        categoryLabel.text = MyAppData.shared.categories[currentCategoryIndex].name
+        amountField.text = String(format: "$%.2f", MyAppData.shared.categories[currentCategoryIndex].maxAmount)
     }
-
-    // MARK: - Table View Data Source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MyAppData.shared.categories.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // initialize cell (using detailed cell style)
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "categoryCell")
-        // for each current budget category
-        let category = MyAppData.shared.categories[indexPath.row]
-        cell.textLabel?.text = category.name
-        cell.detailTextLabel?.text = String(format: "$%.2f", category.maxAmount)
-        
-        return cell
+    
+    @IBAction func nextCategory(_ sender: Any) {
+        currentCategoryIndex = currentCategoryIndex + 1 > MyAppData.shared.categories.count - 1 ? MyAppData.shared.categories.count - 1 : currentCategoryIndex + 1
+        categoryLabel.text = MyAppData.shared.categories[currentCategoryIndex].name
+        amountField.text = String(format: "$%.2f", MyAppData.shared.categories[currentCategoryIndex].maxAmount)
     }
     
     // MARK: - Navigation
+    // create new budget category segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        name = (categoryLabel.text?.count)! > 0 ? categoryLabel.text! : nil
+        let max = amountField.text!.dropFirst()
+        maxAmount = (max.count) > 0 ? Float(max) : nil
+    }
     
-    // done changing current budget unwind segue
-//    @IBAction func unwindWithDoneTapped(segue: UIStoryboardSegue) {
-//        // initialize segue source
-//        if let newCategoryVC = segue.source as? NewCategoryVC {
-//            // if both fields were filled out
-//            if let maxAmount = newCategoryVC.maxAmount, let name = newCategoryVC.name{
-//                // create the new category
-////                var categories = MyAppData.shared.categories
-////                categories.append(Category(name: name, maxAmount: maxAmount, moneyLeftToSpend: maxAmount, moneySpent: 0.00))
-////                MyAppData.shared.categories = categories
-//                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount = maxAmount
-//                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneyLeftToSpend = maxAmount - MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneySpent
-//                
-//            }
-//        }
-//    }
-
+    // MARK: - Text Field
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if range.length > 0 && range.location == 0 {
+            return false
+        }
+        return true
+    }
+    
 }

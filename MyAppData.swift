@@ -50,12 +50,16 @@ class MyAppData {
     private init() {
         readDefaultsData()
         
-        categories.append(Category(name: "Gas", maxAmount: 500, moneyLeftToSpend: 500, moneySpent: 0.00, color:0xC43BFBFF))
-        categories.append(Category(name: "Food", maxAmount: 300, moneyLeftToSpend: 300, moneySpent: 0.00,color:0x54C4F9FF))
-        categories.append(Category(name: "Rent", maxAmount: 10, moneyLeftToSpend: 10, moneySpent: 0.00, color:0xFA6B5CFF))
-        categories.append(Category(name: "Fun", maxAmount: 3000, moneyLeftToSpend: 3000, moneySpent: 0.00, color:0xFCCB62FF))
-        categories.append(Category(name: "Clothes", maxAmount: 2, moneyLeftToSpend: 2, moneySpent: 0.00, color: 0xFFFF00FF))
-
+        // TODO - appends new categories every time app is launched
+        categories.append(Category(name: "Gas", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0xFA6B5C))
+        categories.append(Category(name: "Food", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0xFCCB62))
+        categories.append(Category(name: "Rent", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0x6F20DF))
+        categories.append(Category(name: "Fun", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0xC43BFB))
+        categories.append(Category(name: "Clothing", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0x54C4F9))
+        categories.append(Category(name: "Presents", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0xD32B2B))
+        categories.append(Category(name: "Pets", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0x61E59E))
+        categories.append(Category(name: "School", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0x4D53EF))
+        categories.append(Category(name: "Other", maxAmount: 0.00, moneyLeftToSpend: 0.00, moneySpent: 0.00, color: 0x88B884))
     }
     
     // read saved data from disk
