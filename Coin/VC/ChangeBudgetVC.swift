@@ -48,11 +48,13 @@ class ChangeBudgetVC: UITableViewController {
         // initialize segue source
         if let newCategoryVC = segue.source as? NewCategoryVC {
             // if both fields were filled out
-            if let maxAmount = newCategoryVC.maxAmount, let name = newCategoryVC.name {
+            if let maxAmount = newCategoryVC.maxAmount, let name = newCategoryVC.name{
                 // create the new category
-                var categories = MyAppData.shared.categories
-                categories.append(Category(name: name, maxAmount: maxAmount, moneyLeftToSpend: maxAmount, moneySpent: 0.00))
-                MyAppData.shared.categories = categories
+//                var categories = MyAppData.shared.categories
+//                categories.append(Category(name: name, maxAmount: maxAmount, moneyLeftToSpend: maxAmount, moneySpent: 0.00))
+//                MyAppData.shared.categories = categories
+                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount = maxAmount
+                
             }
         }
     }

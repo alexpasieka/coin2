@@ -20,7 +20,6 @@
 		FAD8D80B22692BD400EF6861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD8D80A22692BD400EF6861 /* Assets.xcassets */; };
 		FAD8D80E22692BD400EF6861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8D80C22692BD400EF6861 /* LaunchScreen.storyboard */; };
 		FAEA6E6F227006660065CE68 /* MyAppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA6E6E227006660065CE68 /* MyAppData.swift */; };
-		FD4BB09A233997D00092B695 /* CircularStd in Resources */ = {isa = PBXBuildFile; fileRef = FD4BB099233997D00092B695 /* CircularStd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,7 +167,6 @@
 				FAD8D80E22692BD400EF6861 /* LaunchScreen.storyboard in Resources */,
 				FAD8D80B22692BD400EF6861 /* Assets.xcassets in Resources */,
 				FAD8D80922692BD300EF6861 /* Main.storyboard in Resources */,
-				FD4BB09A233997D00092B695 /* CircularStd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

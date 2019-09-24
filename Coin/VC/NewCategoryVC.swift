@@ -11,22 +11,41 @@ import UIKit
 class NewCategoryVC: UIViewController, UITextFieldDelegate {
     
     // storyboard references
-    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var amountField: UITextField!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        amountField.delegate = self
-    }
-    
     // ivars
     var name: String?
     var maxAmount: Float?
+    var currentCategoryIndex: Int = 0
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        amountField.delegate = self
+      
+    }
+    
+  
+    
+    @IBAction func previousCategory(_ sender: Any) {
+        print(currentCategoryIndex)
+        currentCategoryIndex = currentCategoryIndex - 1 < 0 ? 0 : currentCategoryIndex - 1
+        print(currentCategoryIndex)
+        categoryLabel.text = MyAppData.shared.categories[currentCategoryIndex].name
+//        category = MyAppData.shared.categories[currentCategoryIndex].name
+    }
+    
+    @IBAction func nextCategory(_ sender: Any) {
+        currentCategoryIndex = currentCategoryIndex + 1 > MyAppData.shared.categories.count - 1 ? MyAppData.shared.categories.count - 1 : currentCategoryIndex + 1
+        categoryLabel.text = MyAppData.shared.categories[currentCategoryIndex].name
+//        category = MyAppData.shared.categories[currentCategoryIndex].name
+    }
     
     // MARK: - Navigation
     // create new budget category segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        name = (nameField.text?.count)! > 0 ? nameField.text! : nil
+        name = (categoryLabel.text?.count)! > 0 ? categoryLabel.text! : nil
         maxAmount = (amountField.text?.count)! > 0 ? Float(amountField.text!) : nil
     }
     
@@ -38,5 +57,7 @@ class NewCategoryVC: UIViewController, UITextFieldDelegate {
         }
         return true
     }
+    
+    
     
 }
