@@ -199,6 +199,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amountField" destination="SCs-Jf-8ip" id="Vfg-hj-mLl"/>
+                        <outlet property="categoryLabel" destination="A5v-nu-JFg" id="8gq-ry-n6e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AE9-IP-CQn" userLabel="First Responder" sceneMemberID="firstResponder"/>

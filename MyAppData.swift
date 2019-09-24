@@ -49,6 +49,13 @@ class MyAppData {
     // designated private initializer
     private init() {
         readDefaultsData()
+        
+        categories.append(Category(name: "Gas", maxAmount: 500, moneyLeftToSpend: 500, moneySpent: 0.00))
+        categories.append(Category(name: "Food", maxAmount: 300, moneyLeftToSpend: 300, moneySpent: 0.00))
+        categories.append(Category(name: "Rent", maxAmount: 10, moneyLeftToSpend: 10, moneySpent: 0.00))
+        categories.append(Category(name: "Fun", maxAmount: 3000, moneyLeftToSpend: 3000, moneySpent: 0.00))
+        categories.append(Category(name: "Clothes", maxAmount: 2, moneyLeftToSpend: 2, moneySpent: 0.00))
+
     }
     
     // read saved data from disk

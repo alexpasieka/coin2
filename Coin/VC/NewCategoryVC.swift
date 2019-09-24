@@ -11,6 +11,7 @@ import UIKit
 class NewCategoryVC: UIViewController, UITextFieldDelegate {
     
     // storyboard references
+//    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var amountField: UITextField!
 

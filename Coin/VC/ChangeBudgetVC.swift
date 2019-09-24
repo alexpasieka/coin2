@@ -54,6 +54,7 @@ class ChangeBudgetVC: UITableViewController {
 //                categories.append(Category(name: name, maxAmount: maxAmount, moneyLeftToSpend: maxAmount, moneySpent: 0.00))
 //                MyAppData.shared.categories = categories
                 MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount = maxAmount
+                MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].moneyLeftToSpend = maxAmount - MyAppData.shared.categories[newCategoryVC.currentCategoryIndex].maxAmount
                 
             }
         }
